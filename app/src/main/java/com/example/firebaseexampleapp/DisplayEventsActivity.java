@@ -47,6 +47,17 @@ public class DisplayEventsActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter();
         allEventsListView.setAdapter(customAdapter);
 
+        allEventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Event event = myEvents.get(i);
+
+                Intent intent = new Intent(DisplayEventsActivity.this, EditEventActivity.class);
+                intent.putExtra("event", event);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -131,14 +142,23 @@ public class DisplayEventsActivity extends AppCompatActivity {
          */
         private int getMonth(Event e) {
             int month = e.getMonth();
-            if (month == 12 || month == 1 || month == 2)
-                return R.drawable.winter;
-            else if (month >= 3 && month <= 5)
-                return R.drawable.spring;
-            else if (month >=6 && month <=9)
-                return R.drawable.summer;
-            else
-                return R.drawable.fall;
+            String birthday = e.getEventName();
+            birthday.toLowerCase();
+
+            if (birthday.contains("birthday") || birthday.contains("bday") ) {
+                return R.drawable.birthday;
+            }
+
+            else {
+                if (month == 12 || month == 1 || month == 2)
+                    return R.drawable.winter;
+                else if (month >= 3 && month <= 5)
+                    return R.drawable.spring;
+                else if (month >= 6 && month <= 9)
+                    return R.drawable.summer;
+                else
+                    return R.drawable.fall;
+            }
         }
     }
 
