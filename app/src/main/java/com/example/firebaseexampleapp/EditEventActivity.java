@@ -82,6 +82,11 @@ public class EditEventActivity extends AppCompatActivity {
         onHome(v);              // reloads opening screen
     }
 
+    public void deleteAll(View v){
+        dbHelper.removeAll();
+        onHome(v);
+    }
+
     public void onHome(View v){
         Intent intent = new Intent(EditEventActivity.this, MainActivity.class);
         startActivity(intent);

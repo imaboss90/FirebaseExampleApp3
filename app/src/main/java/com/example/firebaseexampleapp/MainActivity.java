@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    public void addEventButtonPressed(View v) {
+    public void addEventButtonPressed(View v)        {
         EditText eventNameET = (EditText) findViewById(R.id.eventName);
         String eventName = eventNameET.getText().toString();
 

@@ -1,6 +1,7 @@
 package com.example.firebaseexampleapp;
 
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import com.google.firebase.database.DataSnapshot;
@@ -93,6 +94,11 @@ public class FirebaseDatabaseHelper {
 
     public void deleteEvent(String key) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("events").child(key);
+        ref.removeValue();
+    }
+
+    public void removeAll(){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("events");
         ref.removeValue();
     }
 

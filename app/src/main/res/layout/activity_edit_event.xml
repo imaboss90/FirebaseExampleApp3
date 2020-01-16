@@ -70,4 +70,12 @@
         android:onClick="onHome"
         android:layout_gravity="center" />
 
+    <Button
+        android:id="@+id/deleteAll"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Delete All Events"
+        android:onClick="deleteAll"
+        android:layout_gravity="center" />
+
 </LinearLayout>
